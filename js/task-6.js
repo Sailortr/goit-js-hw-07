@@ -13,19 +13,20 @@ function getRandomHexColor() {
 }
 // 6. görev verilen Math function bitiş
 
-
-
 function createBoxes(amount) {
-  boxes.innerHTML = '';
+  const fragment = document.createDocumentFragment();
   for (let i = 0; i < amount; i++) {
     const size = 30 + i * 10;
     const div = document.createElement('div');
     div.style.width = `${size}px`;
     div.style.height = `${size}px`;
     div.style.backgroundColor = getRandomHexColor();
-    boxes.appendChild(div);
+    fragment.appendChild(div);
   }
+  boxes.innerHTML = '';
+  boxes.appendChild(fragment);
 }
+
 
 function destroyBoxes() {
   boxes.innerHTML = '';
